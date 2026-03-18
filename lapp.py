@@ -1,5 +1,13 @@
+import os
 import streamlit as st
 import pickle
+
+# Absolute path fix
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+model_path = os.path.join(BASE_DIR, "model.pkl")
+vectorizer_path = os.path.join(BASE_DIR, "vectorizer.pkl")
+
 
 # Load model
 model = pickle.load(open("model.pkl", "rb"))
@@ -8,7 +16,7 @@ vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
 # Page config
 st.set_page_config(page_title="Language Detector", page_icon="🌍")
 
-# 🔥 Custom CSS
+# Custom CSS
 st.markdown("""
     <style>
     /* Full page background */
@@ -57,7 +65,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 🔥 Big Title
+# Big Title
 st.markdown('<div class="main-title">🌍 Language Detection App</div>', unsafe_allow_html=True)
 
 # Sidebar
@@ -65,7 +73,7 @@ st.sidebar.title("🌍 Supported Languages")
 for lang in model.classes_:
     st.sidebar.markdown(f"• {lang}")
 
-# 🔥 Bold & Styled Label
+# Bold & Styled Label
 st.markdown('<div class="input-label">✍️ Enter your text here</div>', unsafe_allow_html=True)
 
 # Input box
