@@ -10,8 +10,8 @@ vectorizer_path = os.path.join(BASE_DIR, "vectorizer.pkl")
 
 
 # Load model
-model = pickle.load(open("model.pkl", "rb"))
-vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
+model = pickle.load(open("model_path", "rb"))
+vectorizer = pickle.load(open("vectorizer_path", "rb"))
 
 # Page config
 st.set_page_config(page_title="Language Detector", page_icon="🌍")
